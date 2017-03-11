@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Agregado de estudiante a Fundapec</h1>
+<form action="" method="post">{% csrf_token %}
+    <table class="table table-responsive">
+    {{ form.as_table }}
+    </table>
+    <input class="btn btn-default col-md-offset-6" type="submit" value="Guardar" />
+</form>
+{% endblock content %}

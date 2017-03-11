@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Estudiantes <a href="create_estudiante/" class="btn btn-default">Agregar estudiante a Fundapec</a></h2>
+    <table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Matricula</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Monto credito</th>
+            <th>Desembolsado</th>
+            <th>Pagos hechos</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for estudiante in all_estudiantes %}
+            <tr>
+            <td>{{ estudiante.matricula }}</td>
+            <td>{{ estudiante.nombre }}</td>
+            <td>{{ estudiante.apellidos }}</td>
+            <td>{{ estudiante.credito.monto }}</td>
+            {% if estudiante.num_pagos %}
+            <td>RD${{ estudiante.desembolsado }}</td>
+            <td>{{ estudiante.num_pagos }}</td>
+            {% else %}
+            <td>RD$0.00</td><td>0</td>
+            {% endif %}
+            <td><a href="estudiantes/{{ estudiante.pk }}/">Ver</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+    </table>
+{% endblock %}

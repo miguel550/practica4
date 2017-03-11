@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td>Matricula</td><td>{{ estudiante.matricula }}</td>
+            </tr>
+            <tr>
+                <td>Nombres</td><td>{{ estudiante.nombre }}</td>
+            </tr>
+            <tr>
+                <td>Apellidos</td><td>{{ estudiante.apellidos }}</td>
+            </tr>
+            <tr>
+                <td>Monto credito</td><td>RD${{ estudiante.credito.monto }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

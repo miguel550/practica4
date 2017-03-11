@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Transacciones</h2>
+    <table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Matricula</th>
+            <th>Monto</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaccion in all_transacciones %}
+            <tr>
+            <td>{{ transaccion.pk }}</td>
+            <td>{{ transaccion.credito.estudiante.matricula }}</td>
+            <td>RD${{ transaccion.monto }}</td>
+            <td>{{ transaccion.fecha }}</td>
+            <td><a href="transacciones/{{ transaccion.pk }}/">Ver</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+    </table>
+{% endblock %}
